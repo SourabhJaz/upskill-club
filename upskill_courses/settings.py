@@ -135,8 +135,7 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-# Update once UI is live on github pages
-    "https://buildforbharat1.github.io",
+    "https://sourabhjaz.github.io",
 ]
 
 CORS_ALLOW_METHODS = (
@@ -146,8 +145,7 @@ CORS_ALLOW_METHODS = (
 )
 
 CSRF_TRUSTED_ORIGINS = [
-# Update once UI is live on github pages
-    "https://buildforbharat1.github.io",
+    "https://sourabhjaz.github.io",
 ]
 
 # Internationalization
