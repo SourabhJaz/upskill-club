@@ -64,7 +64,7 @@ Allow CORS requests from your frontend (e.g., GitHub Pages) by setting the allow
 
 ```python
 CORS_ALLOWED_ORIGINS = [
-    "https://buildforbharat1.github.io",
+    "https://youralloweddomain.com",
 ]
 ```
 
