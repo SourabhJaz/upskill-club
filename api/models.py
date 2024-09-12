@@ -9,6 +9,7 @@ class Category(models.Model):
 
 class Author(models.Model):
     name = models.CharField(max_length = TEXT_CONSTRAINTS['TITLE_LEN'], unique = True)
+    thumbnail = models.FileField(blank = True, null = True)
     linkedInUrl = models.URLField()
     outline = models.CharField(max_length = TEXT_CONSTRAINTS['OUTLINE_LEN'])
 
