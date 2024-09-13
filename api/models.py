@@ -21,12 +21,15 @@ class Course(models.Model):
     thumbnail = models.FileField(blank = True, null = True)
     author = models.ForeignKey(Author, on_delete = models.DO_NOTHING)
     image = models.FileField(blank = True, null = True)
+    created_at = models.DateField(null = True)
 
 class Session(models.Model):
     course = models.ForeignKey(Course, on_delete = models.CASCADE)
     title = models.CharField(max_length = TEXT_CONSTRAINTS['TITLE_LEN'], unique = True)
     outline = models.CharField(max_length = TEXT_CONSTRAINTS['OUTLINE_LEN'])
     thumbnail = models.FileField(blank = True, null = True)
+    created_at = models.DateField(null = True)
+
 
 class Concept(models.Model):
     session = models.ForeignKey(Session, on_delete = models.DO_NOTHING)

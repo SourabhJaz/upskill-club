@@ -1,5 +1,6 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
+from rest_framework.filters import SearchFilter
 from .serializers import *
 from .models import *
 
@@ -7,9 +8,9 @@ from .models import *
 class CourseReadOnlyViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_fields = ['category', 'id', 'author']
-
+    search_fields = ['title']
 class AuthorReadOnlyViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
@@ -21,7 +22,7 @@ class CategoryReadOnlyViewSet(viewsets.ReadOnlyModelViewSet):
 
 # Figure out the default route 
 class SessionReadOnlyViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Session.objects.all()
+    queryset = Session.objects.all().order_by('-created_at')
     serializer_class = SessionSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['course', 'id']
