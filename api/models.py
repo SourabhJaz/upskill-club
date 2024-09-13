@@ -28,6 +28,7 @@ class Session(models.Model):
     title = models.CharField(max_length = TEXT_CONSTRAINTS['TITLE_LEN'], unique = True)
     outline = models.CharField(max_length = TEXT_CONSTRAINTS['OUTLINE_LEN'])
     thumbnail = models.FileField(blank = True, null = True)
+    author = models.ForeignKey(Author, on_delete = models.DO_NOTHING, null = True)
     created_at = models.DateField(null = True)
 
 
