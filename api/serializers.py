@@ -21,16 +21,12 @@ class CourseSerializer(serializers.ModelSerializer):
 
 
 class SessionSerializer(serializers.ModelSerializer):
-    course = CourseSerializer(read_only=True)
-    
     class Meta:
         model = Session
         fields = ['id', 'course', 'title', 'outline', 'thumbnail', 'created_at']
 
 
 class ConceptSerializer(serializers.ModelSerializer):
-    session = SessionSerializer(read_only=True)
-    
     class Meta:
         model = Concept
         fields = ['id', 'session', 'title', 'image', 'description']

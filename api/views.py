@@ -26,3 +26,9 @@ class SessionReadOnlyViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = SessionSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['course', 'id']
+
+class ConceptReadOnlyViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Concept.objects.all()
+    serializer_class = ConceptSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['session']
