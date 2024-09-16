@@ -28,6 +28,6 @@ class Command(BaseCommand):
         with open(json_file, 'r') as file:
             data = json.load(file)
             for item in data:
-                self.stdout.write(self.style.NOTICE(f'Running Command for {model_name} {item}'))
+                self.stdout.write(self.style.HTTP_INFO(f'Running Command for {model_name} {item}'))
                 (object, created) = selected_model.objects.update_or_create(id = item['id'], defaults = item)            
                 self.stdout.write(self.style.SUCCESS(f'Command output {object} {created}'))

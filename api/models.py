@@ -34,6 +34,6 @@ class Session(models.Model):
 
 class Concept(models.Model):
     session = models.ForeignKey(Session, on_delete = models.DO_NOTHING)
-    title = models.CharField(max_length = TEXT_CONSTRAINTS['TITLE_LEN'], unique = True)
+    title = models.CharField(max_length = TEXT_CONSTRAINTS['TITLE_LEN'])
     image = models.FileField(blank = True, null = True)
     description = models.CharField(max_length = TEXT_CONSTRAINTS['DESCRIPTION_LEN'])
