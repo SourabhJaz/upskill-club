@@ -9,8 +9,8 @@ class Category(models.Model):
 
 class Author(models.Model):
     name = models.CharField(max_length = TEXT_CONSTRAINTS['TITLE_LEN'], unique = True)
-    thumbnail = models.FileField(blank = True, null = True)
-    linkedInUrl = models.URLField()
+    image_url = models.URLField(blank = True, null = True)
+    linkedin_url = models.URLField(blank = True, null = True, max_length=1000)
     outline = models.CharField(max_length = TEXT_CONSTRAINTS['OUTLINE_LEN'])
 
 class Course(models.Model):
@@ -18,16 +18,15 @@ class Course(models.Model):
     title = models.CharField(max_length = TEXT_CONSTRAINTS['TITLE_LEN'], unique = True)
     outline = models.CharField(max_length = TEXT_CONSTRAINTS['OUTLINE_LEN'])
     short_description = models.CharField(max_length = TEXT_CONSTRAINTS['SHORT_DESCRIPTION_LEN'])
-    thumbnail = models.FileField(blank = True, null = True)
     author = models.ForeignKey(Author, on_delete = models.DO_NOTHING)
-    image = models.FileField(blank = True, null = True)
+    image_url = models.URLField(blank = True, null = True, max_length=1000)
     created_at = models.DateField(null = True)
 
 class Session(models.Model):
     course = models.ForeignKey(Course, on_delete = models.CASCADE)
     title = models.CharField(max_length = TEXT_CONSTRAINTS['TITLE_LEN'], unique = True)
     outline = models.CharField(max_length = TEXT_CONSTRAINTS['OUTLINE_LEN'])
-    thumbnail = models.FileField(blank = True, null = True)
+    image_url = models.URLField(blank = True, null = True, max_length=1000)
     author = models.ForeignKey(Author, on_delete = models.DO_NOTHING, null = True)
     created_at = models.DateField(null = True)
 
@@ -35,5 +34,5 @@ class Session(models.Model):
 class Concept(models.Model):
     session = models.ForeignKey(Session, on_delete = models.DO_NOTHING)
     title = models.CharField(max_length = TEXT_CONSTRAINTS['TITLE_LEN'])
-    image = models.FileField(blank = True, null = True)
+    image_url = models.URLField(blank = True, null = True, max_length=1000)
     description = models.CharField(max_length = TEXT_CONSTRAINTS['DESCRIPTION_LEN'])

@@ -9,7 +9,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
-        fields = ['id', 'name', 'linkedInUrl', 'outline']
+        fields = ['id', 'name', 'linkedin_url', 'outline', 'image_url']
 
 class CourseSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only=True)
@@ -17,17 +17,17 @@ class CourseSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Course
-        fields = ['id', 'category', 'title', 'outline', 'short_description', 'thumbnail', 'author', 'image', 'created_at']
+        fields = ['id', 'category', 'title', 'outline', 'short_description', 'author', 'image_url', 'created_at']
 
 
 class SessionSerializer(serializers.ModelSerializer):
     author = AuthorSerializer(read_only=True)
     class Meta:
         model = Session
-        fields = ['id', 'course', 'title', 'outline', 'thumbnail', 'created_at', 'author']
+        fields = ['id', 'course', 'title', 'outline', 'image_url', 'created_at', 'author']
 
 
 class ConceptSerializer(serializers.ModelSerializer):
     class Meta:
         model = Concept
-        fields = ['id', 'session', 'title', 'image', 'description']
+        fields = ['id', 'session', 'title', 'image_url', 'description']
