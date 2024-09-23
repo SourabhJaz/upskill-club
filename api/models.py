@@ -24,7 +24,7 @@ class Course(models.Model):
 
 class Session(models.Model):
     course = models.ForeignKey(Course, on_delete = models.CASCADE)
-    title = models.CharField(max_length = TEXT_CONSTRAINTS['TITLE_LEN'], unique = True)
+    title = models.CharField(max_length = TEXT_CONSTRAINTS['TITLE_LEN'])
     outline = models.CharField(max_length = TEXT_CONSTRAINTS['OUTLINE_LEN'])
     image_url = models.URLField(blank = True, null = True, max_length=1000)
     author = models.ForeignKey(Author, on_delete = models.DO_NOTHING, null = True)
@@ -33,6 +33,6 @@ class Session(models.Model):
 
 class Concept(models.Model):
     session = models.ForeignKey(Session, on_delete = models.DO_NOTHING)
-    title = models.CharField(max_length = TEXT_CONSTRAINTS['TITLE_LEN'])
+    title = models.CharField(max_length = TEXT_CONSTRAINTS['TITLE_LEN'], blank = True, null = True)
     image_url = models.URLField(blank = True, null = True, max_length=1000)
     description = models.CharField(max_length = TEXT_CONSTRAINTS['DESCRIPTION_LEN'])

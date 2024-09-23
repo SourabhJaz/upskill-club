@@ -28,6 +28,7 @@ class SessionSerializer(serializers.ModelSerializer):
 
 
 class ConceptSerializer(serializers.ModelSerializer):
+    session = SessionSerializer(read_only=True)
     class Meta:
         model = Concept
         fields = ['id', 'session', 'title', 'image_url', 'description']
