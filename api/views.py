@@ -30,7 +30,7 @@ class SessionReadOnlyViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Session.objects.all().order_by('-created_at')
     serializer_class = SessionSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['course', 'id']
+    filterset_fields = ['course', 'id', 'author']
 
 @method_decorator(cache_control(max_age=3600), name='dispatch')
 class ConceptReadOnlyViewSet(viewsets.ReadOnlyModelViewSet):
