@@ -22,6 +22,7 @@ class CourseSerializer(serializers.ModelSerializer):
 
 class SessionSerializer(serializers.ModelSerializer):
     author = AuthorSerializer(read_only=True)
+    course = CourseSerializer(read_only=True)
     class Meta:
         model = Session
         fields = ['id', 'course', 'title', 'outline', 'image_url', 'created_at', 'author']
