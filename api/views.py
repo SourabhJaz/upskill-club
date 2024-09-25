@@ -1,6 +1,6 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
-from rest_framework.filters import SearchFilter
+from rest_framework.filters import SearchFilter, OrderingFilter
 from django.views.decorators.cache import cache_control
 from django.utils.decorators import method_decorator
 from .serializers import *
@@ -27,10 +27,11 @@ class CategoryReadOnlyViewSet(viewsets.ReadOnlyModelViewSet):
 
 @method_decorator(cache_control(max_age=3600), name='dispatch')
 class SessionReadOnlyViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Session.objects.all().order_by('-created_at')
+    queryset = Session.objects.all()
     serializer_class = SessionSerializer
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend, OrderingFilter]
     filterset_fields = ['course', 'id', 'author']
+    ordering_fields = ['created_at']
 
 @method_decorator(cache_control(max_age=3600), name='dispatch')
 class ConceptReadOnlyViewSet(viewsets.ReadOnlyModelViewSet):
