@@ -9,11 +9,12 @@ from .models import *
 # Create your views here.
 @method_decorator(cache_control(max_age=3600), name='dispatch')
 class CourseReadOnlyViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Course.objects.all()
+    queryset = Course.objects.all().order_by('-created_at')
     serializer_class = CourseSerializer
     filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_fields = ['category', 'id', 'author']
     search_fields = ['title']
+
 @method_decorator(cache_control(max_age=86400), name='dispatch')
 class AuthorReadOnlyViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Author.objects.all()
