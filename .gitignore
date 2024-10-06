@@ -165,3 +165,4 @@ media/
 config/
 *.json
 Dockerfile
+test.py
