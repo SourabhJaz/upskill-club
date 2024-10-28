@@ -1,6 +1,6 @@
 # Upskill-club
 
-Upskill Courses is a Django-based project designed to serve course-related APIs using Django Rest Framework (DRF). It supports a set of APIs that expose course categories, courses, sessions, and concepts, with all course data populated by the Django admin panel.
+A Django-based project designed to serve course-related APIs using Django Rest Framework (DRF). It supports a set of APIs that expose course categories, courses, sessions, and concepts, with all course data populated by the Django admin panel.
 
 
 ## Features
