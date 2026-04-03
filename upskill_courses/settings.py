@@ -162,6 +162,13 @@ CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:3000"
 ]
 
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "upskill-club-cache",
+    }
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
