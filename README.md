@@ -16,6 +16,10 @@ Make sure to set the following environment variables in your `.env` file:
 
 - `SECRET_KEY`: Django secret key for your application.
 - `ADMIN_URL`: Custom URL for accessing the Django admin panel.
+- `DB_ENGINE`: Set to `mysql` so Django connects to the managed MySQL instance.
+- `DB_NAME`, `DB_USER`, `DB_PASSWORD`: Credentials for your MySQL database.
+- `DB_HOST` *(optional)*: Defaults to `127.0.0.1`. Use the host provided by your MySQL provider.
+- `DB_PORT` *(optional)*: Defaults to `3306`.
   
 ## Installation and Setup
 
